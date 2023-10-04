@@ -1,0 +1,18 @@
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_LEX_WORDS
+setopt HIST_NO_FUNCTIONS
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+
+alias vish="vi ${ZDOTDIR:-~}/.zshrc"
+alias rsh=". ${ZDOTDIR:-~}/.zshrc"
+alias ls="ls --color=auto"
+bindkey -e
+
+eval $(thefuck --alias)
+
+alias please='sudo $(fc -l -n -1)'
