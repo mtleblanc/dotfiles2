@@ -1,3 +1,8 @@
+local ZDIR=${ZDOTDIR:-~}
+export HISTFILE="${ZDIR}/.zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt EXTENDED_HISTORY
@@ -8,8 +13,8 @@ setopt HIST_NO_FUNCTIONS
 setopt HIST_NO_STORE
 setopt HIST_REDUCE_BLANKS
 
-alias vish="vi ${ZDOTDIR:-~}/.zshrc"
-alias rsh=". ${ZDOTDIR:-~}/.zshrc"
+alias vish="vi ${ZDIR}/.zshrc"
+alias rsh=". ${ZDIR}/.zshrc"
 alias ls="ls --color=auto"
 bindkey -e
 
