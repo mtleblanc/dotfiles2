@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 mkdir -p $HOME/.config/nvim/undo
-for F in nvim/*; do
+for F in "$SCRIPT_DIR/nvim"/* ; do
     if [[ -f "$F" ]]; then
-	    ln -sf "$(pwd)/$F" "$HOME/.config/$F"
+        ln -sf "$F" "$HOME/.config/nvim/"
     fi
 done
 
 mkdir -p $HOME/.config/zsh
-ln -sf "$(pwd)/zsh/zshenv" "$HOME/.zshenv"
-cd zsh
-for F in *; do
+for F in "$SCRIPT_DIR/zsh"/*; do
     if [[ -f "$F" ]]; then
-        ln -sf "$(pwd)/$F" "$HOME/.config/zsh/.$F"
+        ln -sf "$F" "$HOME/.config/zsh/"
     fi
 done
-cd ..
+ln -sf "$SCRIPT_DIR/zsh/zshenv" "$HOME/.zshenv"
+ln -sf "zshrc" "$HOME/.config/zsh/.zshrc"
+ln -sf "zprofile" "$HOME/.config/zsh/.zprofile"
+ln -sf "zlogin" "$HOME/.config/zsh/.zlogin"
+

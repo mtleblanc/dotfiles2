@@ -13,11 +13,6 @@ setopt HIST_NO_FUNCTIONS
 setopt HIST_NO_STORE
 setopt HIST_REDUCE_BLANKS
 
-alias vish="vi ${ZDIR}/.zshrc"
-alias rsh=". ${ZDIR}/.zshrc"
-alias ls="ls --color=auto"
 bindkey -e
 
-eval $(thefuck --alias)
-
-alias please='sudo $(fc -l -n -1)'
+source $ZDIR/alias.sh
